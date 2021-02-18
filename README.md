@@ -1,18 +1,6 @@
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/logo.png?raw=true" width="20%"/>
-
 # CTRL/CTRL++ for Visual Studio Code
 
-Welcome to the official Github Repository of our CTRL/CTRL++ Tools for Visual Studio Code.
-
-Add [**here**](https://github.com/LukasSchopp/vscode-ctrlpptools/issues/new/choose) your questions, issues or feature request for the CTRL/CTRL++ extension.
-
-## Quick links
-- [Bug report](https://github.com/LukasSchopp/vscode-ctrlpptools/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-- [Feature request](https://github.com/LukasSchopp/vscode-ctrlpptools/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)
-- [Question](https://github.com/LukasSchopp/vscode-ctrlpptools/issues/new?assignees=LukasSchopp&labels=question&template=question.md&title=)
-- [Wiki](https://github.com/LukasSchopp/vscode-ctrlpptools/wiki)
-
-------
+#### [Issues](https://github.com/LukasSchopp/vscode-ctrlpptools/issues)&nbsp;&nbsp;|&nbsp;&nbsp;[Documentation](https://github.com/LukasSchopp/vscode-ctrlpptools/wiki)
 
 [![Build Status](https://devops.slooptools.com/jenkins/buildStatus/icon?job=VSCodeCtrl%2Fmaster)](https://devops.slooptools.com/jenkins/view/vsCodeExtenton/job/VSCodeCtrl/job/master/)
 
@@ -36,15 +24,15 @@ This release of the "CTRL/CTRL++ for Visual Studio Code" extension adds language
 
 1B\. IntelliSense for functions, constants and variable types
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/IntelliSense.gif?raw=true" width="70%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/IntelliSense.gif?raw=true" width="55%"/>
 
 1C\. Hover information for functions, constants and variable types
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/Hover.gif?raw=true" width="100%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/Hover.gif?raw=true" width="70%"/>
 
 1D\. Insert code snippets
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/dpConnect.gif?raw=true" width="60%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/dpConnect.gif?raw=true" width="50%"/>
 
 ------
 
@@ -54,15 +42,15 @@ This release of the "CTRL/CTRL++ for Visual Studio Code" extension adds language
 
 2B\. Check CTRL/CTRL++ code
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/CtrlPPCheck.gif?raw=true" width="90%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/CtrlPPCheck.gif?raw=true" width="60%"/>
 
 2C\. Check result as hover information
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/dpSubStrError.png?raw=true" width="60%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/dpSubStrError.png?raw=true" width="50%"/>
 
 2D\. Or look at the results in the problems log.
 
-<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/ProblemLog.png?raw=true" width="70%"/>
+<img src="https://github.com/LukasSchopp/vscode-ctrlpptools/blob/master/images/ProblemLog.png?raw=true" width="60%"/>
 
 ------
 
@@ -126,7 +114,7 @@ Get more information [here](https://store.slooptools.com/addon/quality-check-ctr
 
 **Medium Term**
 * Hover information for custom types and functions
-* ColorDB editor  
+* ColorDB editor
 * Highlighting for project config files
 
 **Long Term**

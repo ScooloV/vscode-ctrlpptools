@@ -1,0 +1,199 @@
+{
+	"name": "ctrlpptools",
+	"displayName": "CTRL/CTRL++ language support",
+	"description": "SIMATIC WinCC OA CTRL/CTRL++ IntelliSense, code highlighting, snippets, static code analyse (CtrlPPCheck) (*.ctl).",
+	"version": "0.2.0",
+	"publisher": "SloopTools",
+	"homepage": "https://github.com/LukasSchopp/vscode-ctrlpptools",
+	"license": "SEE LICENSE IN LICENSE",
+	"bugs": {
+		"url": "https://github.com/LukasSchopp/vscode-ctrlpptools/issues",
+		"email": "info@slooptools.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LukasSchopp/vscode-ctrlpptools"
+	},
+	"icon": "images/logo.png",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"keywords": [
+		"CTRL",
+		"CTRL++",
+		"Control",
+		"WinCC OA",
+		"WinCC Open Architecture"
+	],
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onLanguage:ctrl",
+		"onLanguage:ctrlpp"
+	],
+	"main": "./out/extension.js",
+	"scripts": {
+		"update-grammar": "node ./build/update-grammars.js",
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/cross-spawn": "^6.0.0",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.7.5",
+		"tslint": "^5.12.1",
+		"typescript": "^3.6.3",
+		"vscode": "^1.1.28"
+	},
+	"dependencies": {
+		"@hapi/code": "^5.2.4",
+		"@types/winreg": "^1.2.30",
+		"@types/xmldom": "^0.1.29",
+		"cross-spawn": "^6.0.5",
+		"node": "12.10.0",
+		"sxml": "^1.0.3",
+		"winreg": "^1.2.4",
+		"xml": "^1.0.1",
+		"xmldom": "^0.1.27",
+		"xpath": "0.0.27"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "ctrl",
+				"extensions": [
+					".ctl"
+				],
+				"aliases": [
+					"Ctrl",
+					"ctrl"
+				],
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "ctrlpp",
+				"extensions": [
+					".ctl"
+				],
+				"aliases": [
+					"Ctrl++",
+					"Ctrlpp",
+					"ctrlpp"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ctrl",
+				"scopeName": "source.ctrl",
+				"path": "./syntaxes/ctrl.tmLanguage.json"
+			},
+			{
+				"language": "ctrlpp",
+				"scopeName": "source.ctrlpp",
+				"path": "./syntaxes/ctrlpp.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "ctrl",
+				"path": "./snippets/ctrl.json"
+			},
+			{
+				"language": "ctrlpp",
+				"path": "./snippets/ctrl.json"
+			},
+			{
+				"language": "ctrlpp",
+				"path": "./snippets/ctrlpp.json"
+			},
+			{
+				"language": "ctrlpp",
+				"path": "./snippets/doxygen.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "ctrlcheckcmd.ctrlppcheck",
+				"when": "editorLangId == ctrl || editorLangId == ctrlpp",
+				"title": "Start CtrlPPCheck",
+				"category": "CTRL/CTRL++"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "ctrlcheckcmd.ctrlppcheck",
+				"key": "ctrl+q",
+				"mac": "cmd+f2"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Simple CTRL-Check",
+			"properties": {
+				"Ctrl_Ctrlpp.SLTQualityChecks.isEnabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable the SloopTools Add-on Quality Check & CtrlPPCheck"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.isEnabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable the CtrlPPCheck"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.severity": {
+					"type": "string",
+					"default": "all",
+					"description": "Enabled severities:\nerror\nwarning\nstyle\nperformance\nportability\ninformation\ndebug\nall\n\nEx:'error,style'"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.inconclusive": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable inconclusive check"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.verbose": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable or disable debug messages"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.inlineSuppressions": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable inline suppressions"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.platform": {
+					"type": "string",
+					"default": "win64",
+					"description": "Specifies platform specific types and sizes"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.errId.blackList": {
+					"type": "string",
+					"default": "voidReturnValueMissingInformation,uninitvar",
+					"description": "List of disabled (filtered) error IDs delimited by comma.\nEx:'unreadVariable,emptyScope'"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.checkConfig": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable or disable configurations check"
+				},
+				"Ctrl_Ctrlpp.SLTQualityChecks.path": {
+					"type": "string",
+					"default": "",
+					"description": "Path to Slooptools quality checks. Note: If the setting is empty, the path of the add-on is automatically detected."
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"id": "663f73d7-5de9-4ebe-b887-9ed78c827823",
+		"publisherId": "bb6b2bf4-ed2e-4a63-ae77-a54f6e7c5351",
+		"publisherDisplayName": "SloopTools"
+	}
+}
